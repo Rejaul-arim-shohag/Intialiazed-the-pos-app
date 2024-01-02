@@ -10,6 +10,11 @@ import "./index.css";
 import Category from "./Category/Category";
 
 function App() {
+  //cart 
+  const [cart, setCart] = useState([]);
+
+  console.log("cart", cart)
+
   const [selectedCategory, setSelectedCategory] = useState(null);
 
   // ----------- Input Filter -----------
@@ -45,16 +50,20 @@ function App() {
     if (selected) {
       filteredProducts = filteredProducts.filter(
         ({ category, company, title }) =>
-          category === selected ||        
-          company === selected ||       
+          category === selected ||
+          company === selected ||
           title === selected
       );
     }
 
+
     return filteredProducts.map(
-      ({ img, title, star, reviews, prevPrice, newPrice }) => (
+      ({ id, img, title, star, reviews, prevPrice, newPrice }) => (
         <Card
-          key={Math.random()}
+          cart={cart}
+          setCart={setCart}
+          key={id}
+          id={id}
           img={img}
           title={title}
           star={star}
@@ -69,9 +78,11 @@ function App() {
   const result = filteredData(products, selectedCategory, query);
 
 
+
+
   return (
     <>
-      <Sidebar handleChange={handleChange} />
+      <Sidebar handleChange={handleChange} cart={cart} />
       <Navigation query={query} handleInputChange={handleInputChange} />
       <Recommended handleClick={handleClick} />
       <Category handleChange={handleChange} />

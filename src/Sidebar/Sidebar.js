@@ -1,7 +1,7 @@
 
 import "./Sidebar.css";
 import { CartItem } from "./cartItem/CartItem";
-const Sidebar = ({ handleChange }) => {
+const Sidebar = ({ handleChange, cart }) => {
   return (
     <>
       <section className="sidebar">
@@ -18,7 +18,9 @@ const Sidebar = ({ handleChange }) => {
                 <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Price</h3>
                 <h3 className="font-semibold text-center text-gray-600 text-xs uppercase w-1/5 text-center">Total</h3>
               </div>
-              <CartItem />
+              {
+                cart.map((item, index) => <CartItem key={index} item={item}/>)
+              }
             </div>
           </div>
         </div>
