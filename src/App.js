@@ -7,7 +7,7 @@ import Recommended from "./Recommended/Recommended";
 import Sidebar from "./Sidebar/Sidebar";
 import Card from "./components/Card";
 import "./index.css";
-import Category from "./Sidebar/Category/Category";
+import Category from "./Category/Category";
 
 function App() {
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -35,9 +35,7 @@ function App() {
   };
 
   function filteredData(products, selected, query) {
-    debugger
     let filteredProducts = products;
-
     // Filtering Input Items
     if (query) {
       filteredProducts = filteredItems;
