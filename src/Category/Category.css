@@ -9,14 +9,13 @@
 }
 
 .sidebar-label-container {
+  margin-right: 15px;
   display: block;
   position: relative;
-  padding-left: 35px;
+  padding-left: 22px;
   margin-bottom: 12px;
   cursor: pointer;
   -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
   user-select: none;
 }
 
